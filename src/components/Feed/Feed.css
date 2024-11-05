@@ -1,0 +1,33 @@
+.video {
+  margin-bottom: 30px;
+  /* background-color: rgb(37, 37, 37); */
+  padding: 20px 15px;
+  border-bottom: 1px solid #222;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.video__user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.video__author-info p {
+  font-weight: 700;
+}
+.video__author-info span {
+  font-size: 15px;
+  opacity: 0.6;
+}
+.video__music {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+  opacity: 0.6;
+}
