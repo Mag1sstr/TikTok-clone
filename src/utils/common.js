@@ -21,3 +21,10 @@
 //     console.error(error);
 //   }
 // };
+
+export const compactFormatNum = (num) => {
+  const formatter = Intl.NumberFormat("en", {
+    notation: "compact",
+  });
+  return formatter.format(num);
+};

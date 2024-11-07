@@ -1,5 +1,6 @@
 .video {
   margin-bottom: 30px;
+  width: 400px;
   /* background-color: rgb(37, 37, 37); */
   padding: 20px 15px;
   border-bottom: 1px solid #222;
@@ -16,6 +17,7 @@
   gap: 10px;
   text-decoration: none;
   color: #fff;
+  margin-bottom: 15px;
 }
 .video__author-info p {
   font-weight: 700;
@@ -30,4 +32,15 @@
   margin-bottom: 15px;
   font-size: 15px;
   opacity: 0.6;
+}
+
+.video__wrapper {
+  position: relative;
+  min-height: 360px;
+}
+
+.made {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
 }
