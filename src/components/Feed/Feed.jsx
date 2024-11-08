@@ -16,7 +16,7 @@ export default function Feed() {
     method: "GET",
     url: "https://tiktok-video-no-watermark2.p.rapidapi.com/feed/list",
     params: {
-      region: "JP",
+      region: "RU",
       count: "10",
     },
     headers: {
