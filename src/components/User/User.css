@@ -1,0 +1,73 @@
+.user {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.user__avatar {
+  width: 100px;
+  border-radius: 50%;
+}
+.user__top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+.user__top-title {
+  font-size: 40px;
+  font-weight: 800;
+}
+.user__top-nickname {
+  font-size: 18px;
+}
+.user__top-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.user__counts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.user__counts-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.user__counts-num {
+  font-size: 18px;
+  font-weight: 600;
+}
+.user__counts-text {
+  font-size: 14px;
+  opacity: 0.6;
+  font-weight: 300;
+}
+.user__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.user__desc {
+  margin-bottom: 25px;
+}
+.user__buttons {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 5px;
+}
+.user__buttons-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.main__stage {
+  opacity: 1;
+}
