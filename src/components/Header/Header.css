@@ -2,7 +2,7 @@
   padding: 8px 0;
   border-bottom: 1px solid #fff;
   background: #222;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .header__row {
   display: flex;

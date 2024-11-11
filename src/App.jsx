@@ -9,9 +9,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <div className="conteiner">
-        <AppRoutes />
-      </div>
+
+      <AppRoutes />
     </QueryClientProvider>
   );
 }

@@ -4,13 +4,17 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import { compactFormatNum } from "../../utils/common";
+import UserPostVideos from "../UserPostVideos/UserPostVideos";
+import UserLikedVideos from "../UserLikedVideos/UserLikedVideos";
 
 export default function User() {
   const [user, setUser] = useState(null);
+  const [userVideos, setUserVideos] = useState(null);
+  const [userLiked, setUserLiked] = useState(null);
   const { unique_id } = useParams();
   //   console.log(unique_id);
 
-  const options = {
+  const getUser = {
     method: "GET",
     url: "https://tiktok-video-no-watermark2.p.rapidapi.com/user/info",
     params: {
@@ -22,19 +26,61 @@ export default function User() {
     },
   };
   useEffect(() => {
-    axios.request(options).then((resp) => {
+    axios.request(getUser).then((resp) => {
       setUser(resp.data.data);
+      // console.log(resp.data);
+    });
+  }, [unique_id]);
+
+  const getVideos = {
+    method: "GET",
+    url: "https://tiktok-video-no-watermark2.p.rapidapi.com/user/posts",
+    params: {
+      unique_id: unique_id,
+
+      count: "10",
+      cursor: "0",
+    },
+    headers: {
+      "x-rapidapi-key": "11d42e5b2bmshddfbad72c572160p1af565jsnb818000f27e0",
+      "x-rapidapi-host": "tiktok-video-no-watermark2.p.rapidapi.com",
+    },
+  };
+  useEffect(() => {
+    axios.request(getVideos).then((resp) => {
+      setUserVideos(resp.data.data);
       console.log(resp.data);
     });
   }, [unique_id]);
 
+  const getLikedVideos = {
+    method: "GET",
+    url: "https://tiktok-video-no-watermark2.p.rapidapi.com/user/favorite",
+    params: {
+      unique_id: unique_id,
+      count: "10",
+      cursor: "0",
+    },
+    headers: {
+      "x-rapidapi-key": "11d42e5b2bmshddfbad72c572160p1af565jsnb818000f27e0",
+      "x-rapidapi-host": "tiktok-video-no-watermark2.p.rapidapi.com",
+    },
+  };
+  useEffect(() => {
+    axios.request(getLikedVideos).then((resp) => {
+      setUserLiked(resp.data.data);
+      console.log(resp.data);
+    });
+  }, []);
   const [mainStage, setMainStage] = useState(0);
   const tabs = [
     {
       title: "Videos",
+      component: <UserPostVideos userVideos={userVideos} />,
     },
     {
       title: "Liked",
+      component: <UserLikedVideos userLiked={userLiked} />,
     },
   ];
   return (
@@ -89,9 +135,10 @@ export default function User() {
                 </button>
               );
             })}
-            {/* <button className="user__buttons-btn">Videos</button>
-            <button className="user__buttons-btn">Liked</button> */}
           </div>
+          {tabs.map((item, i) =>
+            i == mainStage ? <div>{item.component}</div> : null
+          )}
         </div>
       ) : (
         <Spinner />

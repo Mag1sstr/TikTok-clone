@@ -49,6 +49,7 @@ export default function Feed() {
             <div className="video__wrapper">
               {/* <video src={item.play} loop autoPlay={false} muted></video> */}
               <Video height="auto" url={item.play} videoId={item.video_id} />
+
               <VideoDetails
                 play_count={item.play_count}
                 comment_count={item.comment_count}
